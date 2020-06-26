@@ -1,6 +1,4 @@
-
 package lab8p2_andresnuila;
-
 
 public class Gerente extends Persona {
 
@@ -44,7 +42,7 @@ public class Gerente extends Persona {
 
     @Override
     public String toString() {
-        return "Gerente{" + "usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", cargo=" + cargo + '}';
+        return "usuario=" + usuario;
     }
 
 }
