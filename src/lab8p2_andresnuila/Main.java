@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JColorChooser;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 public class Main extends javax.swing.JFrame {
-    
+
     public Main() {
         initComponents();
         if (cb_tipoPersona.getSelectedItem().toString().equals("Gerente")) {
@@ -20,7 +21,7 @@ public class Main extends javax.swing.JFrame {
             tf_pocupacion.setEnabled(false);
             tf_psueldo.setEnabled(false);
             tf_ptiempotrabajado.setEnabled(false);
-            
+
         } else {
             tf_guser.setEnabled(false);
             tf_gpass.setEnabled(false);
@@ -30,12 +31,12 @@ public class Main extends javax.swing.JFrame {
             tf_psueldo.setEnabled(true);
             tf_ptiempotrabajado.setEnabled(true);
         }
-        
+
         if (cb_tipoobjeto.getSelectedItem().toString().equalsIgnoreCase("Zapatos")) {
             tf_tallaz.setEnabled(true);
             tf_comodidadz.setEnabled(true);
             ta_descz.setEnabled(true);
-            
+
             rb_sizeL.setEnabled(false);
             rb_sizeS.setEnabled(false);
             rb_sizeM.setEnabled(false);
@@ -52,7 +53,7 @@ public class Main extends javax.swing.JFrame {
             rb_sizeXL.setEnabled(true);
             tf_tipotelar.setEnabled(true);
             tf_paisr.setEnabled(true);
-            
+
             ta_descripcionh.setEnabled(false);
             ta_instruccionesh.setEnabled(false);
             tf_garantiah.setEnabled(false);
@@ -63,7 +64,7 @@ public class Main extends javax.swing.JFrame {
             ta_descripcionh.setEnabled(true);
             ta_instruccionesh.setEnabled(true);
             tf_garantiah.setEnabled(true);
-            
+
             tf_tallaz.setEnabled(false);
             tf_comodidadz.setEnabled(false);
             ta_descz.setEnabled(false);
@@ -267,6 +268,18 @@ public class Main extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jt_objetos = new javax.swing.JTree();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        tabla1 = new javax.swing.JTable();
+        btn_eliminarPersona = new javax.swing.JButton();
+        jLabel84 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        tabla2 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jLabel83 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1418,6 +1431,160 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Jerraquia de Objetos", jPanel6);
 
+        tabla1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Rol"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane12.setViewportView(tabla1);
+
+        btn_eliminarPersona.setText("Eliminar");
+        btn_eliminarPersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_eliminarPersonaMouseClicked(evt);
+            }
+        });
+
+        jLabel84.setText("Seleccione el elemento de la lista que desea eliminar y despues haga click en eliminar:");
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 932, Short.MAX_VALUE)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_eliminarPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel84))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jLabel84)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_eliminarPersona)
+                .addContainerGap(336, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1017, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 628, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane1.addTab("Lista Personas", jPanel10);
+
+        tabla2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Color", "Marca", "Persona que lo ingreso"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane11.setViewportView(tabla2);
+
+        jButton1.setText("Eliminar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        jLabel83.setText("Seleccione el elemento de la lista que desea eliminar y despues haga click en eliminar:");
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 932, Short.MAX_VALUE)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel83))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel83)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(179, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1017, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel11Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 628, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel11Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane1.addTab("Lista Objetos", jPanel11);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1463,11 +1630,11 @@ public class Main extends javax.swing.JFrame {
                 String user = tf_guser.getText();
                 String pass = tf_gpass.getText();
                 cargo = cb_cargo.getSelectedItem().toString();
-                
+
                 Gerente g = new Gerente(user, pass, cargo, id, nombre, edad, sexo, estcivil, altura, peso);
                 personas.add(g);
                 gerentes.add(g);
-                
+
                 tf_gage.setText("");
                 tf_galtura.setText("");
                 tf_gid.setText("");
@@ -1480,7 +1647,7 @@ public class Main extends javax.swing.JFrame {
                 rb_sexoF.setSelected(false);
                 rb_sexoM.setSelected(false);
                 rb_soltero.setSelected(false);
-                
+
                 JOptionPane.showMessageDialog(this, "Se agrego el nuevo gerente.");
                 DefaultTreeModel t = (DefaultTreeModel) jt_personas.getModel();
                 DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) t.getRoot();
@@ -1490,7 +1657,7 @@ public class Main extends javax.swing.JFrame {
                         ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(f);
                     }
                 }
-                
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Hubo un error en los datos.");
             }
@@ -1517,11 +1684,11 @@ public class Main extends javax.swing.JFrame {
                 ocupacion = tf_pocupacion.getText();
                 sueldo = Double.parseDouble(tf_psueldo.getText());
                 int tiemTrabaj = Integer.parseInt(tf_ptiempotrabajado.getText());
-                
+
                 PersonalGeneral pg = new PersonalGeneral(ocupacion, horario, tiemTrabaj, sueldo, id, nombre, edad, sexo, estcivil, altura, peso);
                 personas.add(pg);
                 personasGenerales.add(pg);
-                
+
                 tf_gage.setText("");
                 tf_galtura.setText("");
                 tf_gid.setText("");
@@ -1535,7 +1702,7 @@ public class Main extends javax.swing.JFrame {
                 rb_sexoF.setSelected(false);
                 rb_sexoM.setSelected(false);
                 rb_soltero.setSelected(false);
-                
+
                 JOptionPane.showMessageDialog(this, "Se agrego el nuevo personal general.");
                 DefaultTreeModel t = (DefaultTreeModel) jt_personas.getModel();
                 DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) t.getRoot();
@@ -1545,7 +1712,7 @@ public class Main extends javax.swing.JFrame {
                         ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(f);
                     }
                 }
-                
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Hubo un error en los datos.");
             }
@@ -1562,7 +1729,7 @@ public class Main extends javax.swing.JFrame {
             tf_pocupacion.setEnabled(false);
             tf_psueldo.setEnabled(false);
             tf_ptiempotrabajado.setEnabled(false);
-            
+
         } else {
             tf_guser.setEnabled(false);
             tf_gpass.setEnabled(false);
@@ -1585,7 +1752,7 @@ public class Main extends javax.swing.JFrame {
             tf_tallaz.setEnabled(true);
             tf_comodidadz.setEnabled(true);
             ta_descz.setEnabled(true);
-            
+
             rb_sizeL.setEnabled(false);
             rb_sizeS.setEnabled(false);
             rb_sizeM.setEnabled(false);
@@ -1602,18 +1769,18 @@ public class Main extends javax.swing.JFrame {
             rb_sizeXL.setEnabled(true);
             tf_tipotelar.setEnabled(true);
             tf_paisr.setEnabled(true);
-            
+
             ta_descripcionh.setEnabled(false);
             ta_instruccionesh.setEnabled(false);
             tf_garantiah.setEnabled(false);
-            tf_tallaz.setEnabled(true);
-            tf_comodidadz.setEnabled(true);
-            ta_descz.setEnabled(true);
+            tf_tallaz.setEnabled(false);
+            tf_comodidadz.setEnabled(false);
+            ta_descz.setEnabled(false);
         } else if (cb_tipoobjeto.getSelectedItem().toString().equalsIgnoreCase("Objetos de hogar")) {
             ta_descripcionh.setEnabled(true);
             ta_instruccionesh.setEnabled(true);
             tf_garantiah.setEnabled(true);
-            
+
             tf_tallaz.setEnabled(false);
             tf_comodidadz.setEnabled(false);
             ta_descz.setEnabled(false);
@@ -1630,7 +1797,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (cb_tipoobjeto.getSelectedItem().toString().equalsIgnoreCase("Zapatos")) {
             try {
-                
+
                 tf_tallaz.setEnabled(true);
                 ta_descz.setEnabled(true);
                 tf_comodidadz.setEnabled(true);
@@ -1643,35 +1810,35 @@ public class Main extends javax.swing.JFrame {
                 rb_sizeM.setEnabled(false);
                 rb_sizeL.setEnabled(false);
                 rb_sizeXL.setEnabled(false);
-                
+
                 Color c = btn_color.getBackground();
                 String desc = ta_descripciongeneral.getText();
                 String marca = tf_marca.getText();
                 String tam = tf_tama.getText();
                 String calidad = tf_calidad.getText();
                 String persona = cb_personaingresada.getSelectedItem().toString();
-                
+
                 int talla = Integer.parseInt(tf_tallaz.getText());
                 String descSuela = ta_descz.getText();
                 int comodidad = Integer.parseInt(tf_comodidadz.getText());
                 while (comodidad > 11 || comodidad < 0) {
                     comodidad = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese una comodidad valida 1-10"));
                 }
-                
+
                 Zapato z = new Zapato(talla, descSuela, comodidad, c, desc, marca, tam, calidad, persona);
                 objetos.add(z);
                 zapatos.add(z);
-                
+
                 btn_color.setBackground(Color.BLACK);
                 ta_descripciongeneral.setText("");
                 tf_marca.setText("");
                 tf_tama.setText("");
                 tf_calidad.setText("");
-                
+
                 tf_tallaz.setText("");
                 ta_descz.setText("");
                 tf_comodidadz.setText("");
-                
+
                 JOptionPane.showMessageDialog(this, "Objeto agregado exitosamente.");
                 DefaultTreeModel t = (DefaultTreeModel) jt_objetos.getModel();
                 DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) t.getRoot();
@@ -1681,13 +1848,13 @@ public class Main extends javax.swing.JFrame {
                         ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(f);
                     }
                 }
-                
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Hubo un error en los datos");
             }
         } else if (cb_tipoobjeto.getSelectedItem().toString().equalsIgnoreCase("Ropa")) {
             try {
-                
+
                 tf_tallaz.setEnabled(false);
                 ta_descz.setEnabled(false);
                 tf_comodidadz.setEnabled(false);
@@ -1700,7 +1867,7 @@ public class Main extends javax.swing.JFrame {
                 rb_sizeM.setEnabled(true);
                 rb_sizeL.setEnabled(true);
                 rb_sizeXL.setEnabled(true);
-                
+
                 Color c = btn_color.getBackground();
                 String desc = ta_descripciongeneral.getText();
                 marca = tf_marca.getText();
@@ -1717,29 +1884,29 @@ public class Main extends javax.swing.JFrame {
                 } else if (rb_sizeXL.isSelected()) {
                     talla = "XL";
                 }
-                
+
                 String tipoTela = tf_tipotelar.getText();
                 String paisElab = tf_paisr.getText();
-                
+
                 Ropa r = new Ropa(talla, tipoTela, paisElab, c, desc, marca, tam, calidad, persona);
-                
+
                 objetos.add(r);
                 ropas.add(r);
-                
+
                 btn_color.setBackground(Color.BLACK);
                 ta_descripciongeneral.setText("");
                 tf_marca.setText("");
                 tf_tama.setText("");
                 tf_tallaz.setText("");
                 tf_calidad.setText("");
-                
+
                 tf_tipotelar.setText("");
                 tf_paisr.setText("");
                 rb_sizeS.setSelected(true);
                 rb_sizeM.setSelected(false);
                 rb_sizeL.setSelected(false);
                 rb_sizeXL.setSelected(false);
-                
+
                 JOptionPane.showMessageDialog(this, "Objeto agregado exitosamente.");
                 DefaultTreeModel t = (DefaultTreeModel) jt_objetos.getModel();
                 DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) t.getRoot();
@@ -1749,14 +1916,14 @@ public class Main extends javax.swing.JFrame {
                         ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(f);
                     }
                 }
-                
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Hubo un error en los datos");
             }
-            
+
         } else {
             try {
-                
+
                 tf_tallaz.setEnabled(false);
                 ta_descz.setEnabled(false);
                 tf_comodidadz.setEnabled(false);
@@ -1769,32 +1936,32 @@ public class Main extends javax.swing.JFrame {
                 rb_sizeM.setEnabled(false);
                 rb_sizeL.setEnabled(false);
                 rb_sizeXL.setEnabled(false);
-                
+
                 Color c = btn_color.getBackground();
                 String desc = ta_descripciongeneral.getText();
                 String marca = tf_marca.getText();
                 String tam = tf_tama.getText();
                 String calidad = tf_calidad.getText();
                 String persona = cb_personaingresada.getSelectedItem().toString();
-                
+
                 String descripH = ta_descripcionh.getText();
                 String inst = ta_instruccionesh.getText();
                 int tiempoG = Integer.parseInt(tf_garantiah.getText());
-                
+
                 Hogar h = new Hogar(descripH, inst, tiempoG, c, desc, marca, tam, calidad, persona);
                 objetos.add(h);
                 hogares.add(h);
-                
+
                 btn_color.setBackground(Color.BLACK);
                 ta_descripciongeneral.setText("");
                 tf_marca.setText("");
                 tf_tama.setText("");
                 tf_calidad.setText("");
-                
+
                 ta_descripcionh.setText("");
                 ta_instruccionesh.setText("");
                 tf_garantiah.setText("");
-                
+
                 JOptionPane.showMessageDialog(this, "Objeto agregado exitosamente.");
                 DefaultTreeModel t = (DefaultTreeModel) jt_objetos.getModel();
                 DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) t.getRoot();
@@ -1821,12 +1988,12 @@ public class Main extends javax.swing.JFrame {
             tf_pocupacionmod.setEnabled(false);
             tf_psueldomod.setEnabled(false);
             tf_ptiempotrabajadomod.setEnabled(false);
-            
+
             tf_phorariomod.setText("");
             tf_pocupacionmod.setText("");
             tf_psueldomod.setText("");
             tf_ptiempotrabajadomod.setText("");
-            
+
             id = ((Persona) personas.get(indiceMod)).getId();
             nombre = ((Persona) personas.get(indiceMod)).getNombre();
             edad = ((Persona) personas.get(indiceMod)).getEdad();
@@ -1834,17 +2001,17 @@ public class Main extends javax.swing.JFrame {
             estcivil = ((Persona) personas.get(indiceMod)).getEstcivil();
             altura = ((Persona) personas.get(indiceMod)).getAltura();
             peso = ((Persona) personas.get(indiceMod)).getPeso();
-            
+
             for (int i = 0; i < gerentes.size(); i++) {
                 if (nombre.equals(((Gerente) gerentes.get(i)).getNombre())) {
                     indGer = i;
                 }
             }
-            
+
             usuario = ((Gerente) gerentes.get(indGer)).getUsuario();
             contra = ((Gerente) gerentes.get(indGer)).getContraseña();
             cargo = ((Gerente) gerentes.get(indGer)).getCargo();
-            
+
             idString = "";
             idString += id;
             edadString = "";
@@ -1875,9 +2042,7 @@ public class Main extends javax.swing.JFrame {
             tf_gusermod.setText(usuario);
             tf_gpassmod.setText(contra);
             cb_cargomod.setSelectedItem(cargo);
-            
-            
-            
+
         }
         if (personas.get(indiceMod) instanceof PersonalGeneral) {
             tf_gusermod.setText("");
@@ -1887,7 +2052,7 @@ public class Main extends javax.swing.JFrame {
             tf_agemod.setText("");
             tf_alturamod.setText("");
             tf_pesomod.setText("");
-            
+
             tf_gusermod.setEnabled(false);
             tf_gpassmod.setEnabled(false);
             cb_cargomod.setEnabled(false);
@@ -1895,7 +2060,7 @@ public class Main extends javax.swing.JFrame {
             tf_pocupacionmod.setEnabled(true);
             tf_psueldomod.setEnabled(true);
             tf_ptiempotrabajadomod.setEnabled(true);
-            
+
             id = ((Persona) personas.get(indiceMod)).getId();
             nombre = ((Persona) personas.get(indiceMod)).getNombre();
             edad = ((Persona) personas.get(indiceMod)).getEdad();
@@ -1903,7 +2068,7 @@ public class Main extends javax.swing.JFrame {
             estcivil = ((Persona) personas.get(indiceMod)).getEstcivil();
             altura = ((Persona) personas.get(indiceMod)).getAltura();
             peso = ((Persona) personas.get(indiceMod)).getPeso();
-            
+
             for (int i = 0; i < personasGenerales.size(); i++) {
                 if (nombre.equalsIgnoreCase(((PersonalGeneral) personasGenerales.get(i)).getNombre())) {
                     indPer = i;
@@ -1911,10 +2076,10 @@ public class Main extends javax.swing.JFrame {
             }
             idString = "";
             idString += id;
-            
+
             edadString = "";
             edadString += edad;
-            
+
             ocupacion = ((PersonalGeneral) personasGenerales.get(indPer)).getOcupacion();
             horario = ((PersonalGeneral) personasGenerales.get(indPer)).getHorario();
             tiempTrab = ((PersonalGeneral) personasGenerales.get(indPer)).getTiempotrabajo();
@@ -1922,7 +2087,7 @@ public class Main extends javax.swing.JFrame {
             sueldo = ((PersonalGeneral) personasGenerales.get(indPer)).getSueldo();
             sueldoString = "";
             sueldoString += sueldo;
-            
+
             tf_idmod.setText(idString);
             tf_namemod.setText(nombre);
             tf_agemod.setText(edadString);
@@ -1950,9 +2115,7 @@ public class Main extends javax.swing.JFrame {
             tf_phorariomod.setText(horario);
             tf_ptiempotrabajadomod.setText(tiempString);
             tf_psueldomod.setText(sueldoString);
-            
-            
-            
+
         }
 
     }//GEN-LAST:event_cb_personasModItemStateChanged
@@ -1979,18 +2142,18 @@ public class Main extends javax.swing.JFrame {
                 usuario = tf_gusermod.getText();
                 contra = tf_gpassmod.getText();
                 cargo = cb_cargomod.getSelectedItem().toString();
-                
+
                 personas.remove(indiceMod);
                 gerentes.remove(indGer);
                 Gerente g = new Gerente(usuario, contra, cargo, id, nombre, edad, sexo, estcivil, altura, peso);
                 gerentes.add(g);
                 personas.add(g);
-                
+
                 JOptionPane.showMessageDialog(this, "Gerente modificado exitosamente");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Hubo un error en los datos");
             }
-            
+
         } else if ((Persona) personas.get(indiceMod) instanceof PersonalGeneral) {
             try {
                 id = Integer.parseInt(tf_idmod.getText());
@@ -2012,20 +2175,20 @@ public class Main extends javax.swing.JFrame {
                 horario = tf_phorariomod.getText();
                 tiempTrab = Integer.parseInt(tf_ptiempotrabajadomod.getText());
                 sueldo = Integer.parseInt(tf_psueldomod.getText());
-                
+
                 PersonalGeneral pg = new PersonalGeneral(ocupacion, horario, tiempTrab, sueldo, id, nombre, edad, sexo, estcivil, altura, peso);
-                
+
                 personas.remove(indiceMod);
                 personasGenerales.remove(indPer);
-                
+
                 personas.add(pg);
                 personasGenerales.add(pg);
-                
+
                 JOptionPane.showMessageDialog(this, "Personal general modificado exitosamente");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Hubo un error en los datos");
             }
-            
+
         }
     }//GEN-LAST:event_btn_agregarpersona1MouseClicked
 
@@ -2037,46 +2200,46 @@ public class Main extends javax.swing.JFrame {
     private void cb_objetomodItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_objetomodItemStateChanged
         // TODO add your handling code here:
         String nombreObj = cb_objetomod.getSelectedItem().toString();
-        
+
         for (int i = 0; i < objetos.size(); i++) {
             if (nombreObj.equalsIgnoreCase(((Objeto) objetos.get(i)).getMarca())) {
                 indiceModObj = i;
             }
         }
-        
+
         if (objetos.get(indiceModObj) instanceof Zapato) {
             tf_tallaz.setEnabled(true);
             ta_desczmod.setEnabled(true);
             tf_comodidadzmod.setEnabled(true);
-            
+
             tf_tipotelarmod.setEnabled(false);
             tf_paisrmod.setEnabled(false);
             rb_sizeSmod.setEnabled(false);
             rb_sizeMmod.setEnabled(false);
             rb_sizeLmod.setEnabled(false);
             rb_sizeXLmod.setEnabled(false);
-            
+
             ta_descripcionhmod.setEnabled(false);
             ta_instruccioneshmod.setEnabled(false);
             tf_garantiahmod.setEnabled(false);
-            
+
             color = ((Objeto) objetos.get(indiceModObj)).getColor();
             descripcionGe = ((Objeto) objetos.get(indiceModObj)).getDesc();
             marca = ((Objeto) objetos.get(indiceModObj)).getMarca();
             tam = ((Objeto) objetos.get(indiceModObj)).getMarca();
             calidad = ((Objeto) objetos.get(indiceModObj)).getCalidad();
             personaIng = ((Objeto) objetos.get(indiceModObj)).getPersonaIng();
-            
+
             for (int i = 0; i < zapatos.size(); i++) {
                 if (marca.equalsIgnoreCase(((Zapato) zapatos.get(i)).getMarca())) {
                     indZap = i;
                 }
             }
-            
+
             tallaZ = ((Zapato) zapatos.get(indZap)).getTalla();
             descSuela = ((Zapato) zapatos.get(indZap)).getDescSuela();
             comodidad = ((Zapato) zapatos.get(indZap)).getComodidad();
-            
+
             btn_colormod.setBackground(color);
             ta_descripciongeneralmod.setText(descripcionGe);
             tf_marcamod.setText(marca);
@@ -2090,48 +2253,48 @@ public class Main extends javax.swing.JFrame {
             comodidadString = "";
             comodidadString += comodidad;
             tf_comodidadzmod.setText(comodidadString);
-            
+
             JOptionPane.showMessageDialog(this, "Cambie los campos para modificar y despues presione el boton modificar");
         } else if (objetos.get(indiceModObj) instanceof Ropa) {
             tf_tallaz.setEnabled(false);
             ta_desczmod.setEnabled(false);
             tf_comodidadzmod.setEnabled(false);
-            
+
             tf_tipotelarmod.setEnabled(true);
             tf_paisrmod.setEnabled(true);
             rb_sizeSmod.setEnabled(true);
             rb_sizeMmod.setEnabled(true);
             rb_sizeLmod.setEnabled(true);
             rb_sizeXLmod.setEnabled(true);
-            
+
             ta_descripcionhmod.setEnabled(false);
             ta_instruccioneshmod.setEnabled(false);
             tf_garantiahmod.setEnabled(false);
-            
+
             color = ((Objeto) objetos.get(indiceModObj)).getColor();
             descripcionGe = ((Objeto) objetos.get(indiceModObj)).getDesc();
             marca = ((Objeto) objetos.get(indiceModObj)).getMarca();
             tam = ((Objeto) objetos.get(indiceModObj)).getMarca();
             calidad = ((Objeto) objetos.get(indiceModObj)).getCalidad();
             personaIng = ((Objeto) objetos.get(indiceModObj)).getPersonaIng();
-            
+
             for (int i = 0; i < ropas.size(); i++) {
                 if (marca.equalsIgnoreCase(((Ropa) ropas.get(i)).getMarca())) {
                     indRop = i;
                 }
             }
-            
+
             tallaR = ((Ropa) ropas.get(indRop)).getTalla();
             tipotela = ((Ropa) ropas.get(indRop)).getTipoTela();
             paiselab = ((Ropa) ropas.get(indRop)).getPais();
-            
+
             btn_colormod.setBackground(color);
             ta_descripciongeneralmod.setText(descripcionGe);
             tf_marcamod.setText(marca);
             tf_tamamod.setText(tam);
             tf_calidadmod.setText(calidad);
             cb_personasMod.setSelectedItem(personaIng);
-            
+
             if (tallaR.equalsIgnoreCase("S")) {
                 rb_sizeSmod.setSelected(true);
                 rb_sizeMmod.setSelected(false);
@@ -2153,58 +2316,58 @@ public class Main extends javax.swing.JFrame {
                 rb_sizeLmod.setSelected(false);
                 rb_sizeXLmod.setSelected(true);
             }
-            
+
             tf_tipotelarmod.setText(tipotela);
             tf_paisrmod.setText(paiselab);
-            
+
             JOptionPane.showMessageDialog(this, "Cambie los campos para modificar y despues presione el boton modificar");
-            
+
         } else if (objetos.get(indiceModObj) instanceof Hogar) {
             tf_tallaz.setEnabled(false);
             ta_desczmod.setEnabled(false);
             tf_comodidadzmod.setEnabled(false);
-            
+
             tf_tipotelarmod.setEnabled(false);
             tf_paisrmod.setEnabled(false);
             rb_sizeSmod.setEnabled(false);
             rb_sizeMmod.setEnabled(false);
             rb_sizeLmod.setEnabled(false);
             rb_sizeXLmod.setEnabled(false);
-            
+
             ta_descripcionhmod.setEnabled(true);
             ta_instruccioneshmod.setEnabled(true);
             tf_garantiahmod.setEnabled(true);
-            
+
             color = ((Objeto) objetos.get(indiceModObj)).getColor();
             descripcionGe = ((Objeto) objetos.get(indiceModObj)).getDesc();
             marca = ((Objeto) objetos.get(indiceModObj)).getMarca();
             tam = ((Objeto) objetos.get(indiceModObj)).getMarca();
             calidad = ((Objeto) objetos.get(indiceModObj)).getCalidad();
             personaIng = ((Objeto) objetos.get(indiceModObj)).getPersonaIng();
-            
+
             for (int i = 0; i < hogares.size(); i++) {
                 if (marca.equalsIgnoreCase(((Hogar) hogares.get(i)).getMarca())) {
                     indHog = i;
                 }
             }
-            
+
             descH = ((Hogar) hogares.get(indHog)).getDescLugar();
             inst = ((Hogar) hogares.get(indHog)).getInstrucciones();
             tiempGarant = ((Hogar) hogares.get(indHog)).getTiempoGarantia();
-            
+
             btn_colormod.setBackground(color);
             ta_descripciongeneralmod.setText(descripcionGe);
             tf_marcamod.setText(marca);
             tf_tamamod.setText(tam);
             tf_calidadmod.setText(calidad);
             cb_personasMod.setSelectedItem(personaIng);
-            
+
             ta_descripcionhmod.setText(descH);
             ta_instruccioneshmod.setText(inst);
             garantString = "";
             garantString += tiempGarant;
             tf_garantiahmod.setText(garantString);
-            
+
             JOptionPane.showMessageDialog(this, "Cambie los campos para modificar y despues presione el boton modificar");
         }
 
@@ -2226,20 +2389,20 @@ public class Main extends javax.swing.JFrame {
                 while (comodidad > 11 || comodidad < 0) {
                     comodidad = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese una comodidad valida 1-10"));
                 }
-                
+
                 zapatos.remove(indZap);
                 objetos.remove(indiceModObj);
-                
+
                 Zapato z = new Zapato(tallaZ, descSuela, comodidad, color, descripcionGe, marca, tam, calidad, personaIng);
                 zapatos.add(z);
                 objetos.add(z);
-                
+
                 JOptionPane.showMessageDialog(this, "Zapatos modificados exitosamente");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Hubo un error en los datos");
             }
         } else if ((Objeto) objetos.get(indiceModObj) instanceof Ropa) {
-            
+
             try {
                 color = btn_colormod.getBackground();
                 descripcionGe = ta_descripciongeneralmod.getText();
@@ -2247,7 +2410,7 @@ public class Main extends javax.swing.JFrame {
                 tam = tf_tamamod.getText();
                 calidad = tf_calidadmod.getText();
                 personaIng = cb_personaingresadamod.getSelectedItem().toString();
-                
+
                 if (rb_sizeSmod.isSelected()) {
                     tallaR = "S";
                 } else if (rb_sizeMmod.isSelected()) {
@@ -2259,19 +2422,19 @@ public class Main extends javax.swing.JFrame {
                 }
                 tipotela = tf_tipotelarmod.getText();
                 paiselab = tf_paisrmod.getText();
-                
+
                 ropas.remove(indRop);
                 objetos.remove(indiceModObj);
-                
+
                 Ropa r = new Ropa(tallaR, tipotela, paiselab, color, descripcionGe, marca, tam, calidad, personaIng);
-                
+
                 ropas.add(r);
                 objetos.add(r);
                 JOptionPane.showMessageDialog(this, "Ropa modificada exitosamente");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Hubo un error en los datos");
             }
-            
+
         } else {
             try {
                 color = btn_colormod.getBackground();
@@ -2280,16 +2443,16 @@ public class Main extends javax.swing.JFrame {
                 tam = tf_tamamod.getText();
                 calidad = tf_calidadmod.getText();
                 personaIng = cb_personaingresadamod.getSelectedItem().toString();
-                
+
                 descH = ta_descripcionhmod.getText();
                 inst = ta_instruccioneshmod.getText();
                 tiempGarant = Integer.parseInt(tf_garantiahmod.getText());
-                
+
                 hogares.remove(indHog);
                 objetos.remove(indiceModObj);
-                
+
                 Hogar h = new Hogar(descH, inst, tiempGarant, color, descripcionGe, marca, tam, calidad, personaIng);
-                
+
                 hogares.add(h);
                 objetos.add(h);
                 JOptionPane.showMessageDialog(this, "Objeto de hgoar modificado exitosamente");
@@ -2300,7 +2463,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_modificarobjetoMouseClicked
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
-        
+
         if (jTabbedPane1.getSelectedIndex() == 2) {
             DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_personasMod.getModel();
             for (Object p : personas) {
@@ -2309,26 +2472,90 @@ public class Main extends javax.swing.JFrame {
             cb_personasMod.setModel(modelo);
         } else if (jTabbedPane1.getSelectedIndex() == 3) {
             DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_objetomod.getModel();
-            DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_personaingresadamod.getModel();
-            for (int i = 0; i < modelo.getSize(); i++) {
-                modelo.removeElementAt(i);
-            }
-            for (int i = 0; i < modelo2.getSize(); i++) {
-                modelo2.removeElementAt(i);
-            }
-            
-            for (int i = 0; i < objetos.size(); i++) {
-                String nombre = ((Objeto) objetos.get(i)).getMarca();
-                modelo2.addElement(nombre);
-            }
-            
-            for (int i = 0; i < objetos.size(); i++) {
-                String nombre = ((Objeto) objetos.get(i)).getMarca();
-                modelo.addElement(nombre);
+            for (Object o : objetos) {
+                modelo.addElement(o);
             }
             cb_objetomod.setModel(modelo);
+            DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_personaingresadamod.getModel();
+            for (Object p : personas) {
+                modelo2.addElement(p);
+            }
+            cb_personaingresadamod.setModel(modelo2);
+        } else if (jTabbedPane1.getSelectedIndex() == 1) {
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_personaingresada.getModel();
+            for (Object p : personas) {
+                modelo.addElement(p);
+            }
+            cb_personaingresada.setModel(modelo);
+        } else if (jTabbedPane1.getSelectedIndex() == 6) {
+
+            DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
+            for (Object p : personas) {
+                String name = ((Persona) p).getNombre();
+                String rol = "";
+                if (p instanceof Gerente) {
+                    rol = ((Gerente) p).getCargo();
+                } else if (p instanceof PersonalGeneral) {
+                    rol = ((PersonalGeneral) p).getOcupacion();
+                }
+                Object[] row = {name, rol};
+                modelo.addRow(row);
+            }
+            tabla1.setModel(modelo);
+        } else if (jTabbedPane1.getSelectedIndex() == 7) {
+            DefaultTableModel modelo = (DefaultTableModel) tabla2.getModel();
+            for (Object o : objetos) {
+                Color c = ((Objeto) o).getColor();
+                String marc = ((Objeto) o).getMarca();
+                String ing = ((Objeto) o).getPersonaIng();
+                Object[] newrow = {
+                    c,
+                    marc,
+                    ing
+                };
+                modelo.addRow(newrow);
+            }
+            tabla2.setModel(modelo);
         }
     }//GEN-LAST:event_jTabbedPane1StateChanged
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        boolean auth = false;
+        while (auth == false) {
+            String pass = JOptionPane.showInputDialog(this, "Ingrese la contraseña para eliminar: ");
+            if (pass.equals("unitec1234")) {
+                auth = true;
+            } else {
+                JOptionPane.showMessageDialog(this, "Contraseña incorrecta");
+            }
+        }
+
+        if (tabla2.getSelectedRow() >= 0) {
+            DefaultTableModel modelo = (DefaultTableModel) tabla2.getModel();
+            modelo.removeRow(tabla2.getSelectedRow());
+            tabla2.setModel(modelo);
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void btn_eliminarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_eliminarPersonaMouseClicked
+        // TODO add your handling code here:
+        boolean auth = false;
+        while (auth == false) {
+            String pass = JOptionPane.showInputDialog(this, "Ingrese la contraseña para eliminar: ");
+            if (pass.equals("unitec1234")) {
+                auth = true;
+            } else {
+                JOptionPane.showMessageDialog(this, "Contraseña incorrecta");
+            }
+        }
+
+        if (tabla1.getSelectedRow() >= 0) {
+            DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
+            modelo.removeRow(tabla1.getSelectedRow());
+            tabla1.setModel(modelo);
+        }
+    }//GEN-LAST:event_btn_eliminarPersonaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -2371,6 +2598,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btn_agregarpersona1;
     private javax.swing.JButton btn_color;
     private javax.swing.JButton btn_colormod;
+    private javax.swing.JButton btn_eliminarPersona;
     private javax.swing.JButton btn_modificarobjeto;
     private javax.swing.JComboBox<String> cb_cargo;
     private javax.swing.JComboBox<String> cb_cargomod;
@@ -2380,6 +2608,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_personasMod;
     private javax.swing.JComboBox<String> cb_tipoPersona;
     private javax.swing.JComboBox<String> cb_tipoobjeto;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2461,10 +2690,16 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2475,6 +2710,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2510,6 +2747,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextArea ta_desczmod;
     private javax.swing.JTextArea ta_instruccionesh;
     private javax.swing.JTextArea ta_instruccioneshmod;
+    private javax.swing.JTable tabla1;
+    private javax.swing.JTable tabla2;
     private javax.swing.JTextField tf_agemod;
     private javax.swing.JTextField tf_alturamod;
     private javax.swing.JTextField tf_calidad;

@@ -42,7 +42,7 @@ public class Gerente extends Persona {
 
     @Override
     public String toString() {
-        return "usuario=" + usuario;
+        return super.toString() + " usuario=" + usuario;
     }
 
 }
