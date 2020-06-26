@@ -2488,7 +2488,20 @@ public class Main extends javax.swing.JFrame {
             }
             cb_personaingresada.setModel(modelo);
         } else if (jTabbedPane1.getSelectedIndex() == 6) {
+            tabla1.setModel(new javax.swing.table.DefaultTableModel(
+                    new Object[][]{},
+                    new String[]{
+                        "Nombre", "Rol"
+                    }
+            ) {
+                Class[] types = new Class[]{
+                    java.lang.String.class, java.lang.String.class
+                };
 
+                public Class getColumnClass(int columnIndex) {
+                    return types[columnIndex];
+                }
+            });
             DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
             for (Object p : personas) {
                 String name = ((Persona) p).getNombre();
@@ -2503,6 +2516,20 @@ public class Main extends javax.swing.JFrame {
             }
             tabla1.setModel(modelo);
         } else if (jTabbedPane1.getSelectedIndex() == 7) {
+            tabla2.setModel(new javax.swing.table.DefaultTableModel(
+                    new Object[][]{},
+                    new String[]{
+                        "Color", "Marca", "Persona que lo ingreso"
+                    }
+            ) {
+                Class[] types = new Class[]{
+                    java.lang.Object.class, java.lang.String.class, java.lang.String.class
+                };
+
+                public Class getColumnClass(int columnIndex) {
+                    return types[columnIndex];
+                }
+            });
             DefaultTableModel modelo = (DefaultTableModel) tabla2.getModel();
             for (Object o : objetos) {
                 Color c = ((Objeto) o).getColor();
