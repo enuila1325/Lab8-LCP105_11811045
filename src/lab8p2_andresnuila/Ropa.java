@@ -5,10 +5,55 @@
  */
 package lab8p2_andresnuila;
 
-/**
- *
- * @author enuil
- */
-public class Ropa {
+import java.awt.Color;
+
+public class Ropa extends Objeto{
+
+    private String talla;
+    private String tipoTela;
+    private String pais;
+
+    public Ropa() {
+    }
+
+    public Ropa(String talla, String tipoTela, String pais, Color color, String desc, String marca, String tam, String calidad, String personaIng) {
+        super(color, desc, marca, tam, calidad, personaIng);
+        this.talla = talla;
+        this.tipoTela = tipoTela;
+        this.pais = pais;
+    }
+
+    
+
+    public String getTalla() {
+        return talla;
+    }
+
+    public void setTalla(String talla) {
+        this.talla = talla;
+    }
+
+    public String getTipoTela() {
+        return tipoTela;
+    }
+
+    public void setTipoTela(String tipoTela) {
+        this.tipoTela = tipoTela;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    @Override
+    public String toString() {
+        return "Ropa{" + "talla=" + talla + ", tipoTela=" + tipoTela + ", pais=" + pais + '}';
+    }
+    
+    
     
 }
