@@ -1,6 +1,9 @@
 package lab8p2_andresnuila;
 
+import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JColorChooser;
 
 public class Main extends javax.swing.JFrame {
 
@@ -1401,17 +1404,17 @@ public class Main extends javax.swing.JFrame {
         String tipoPersona = cb_tipoPersona.getSelectedItem().toString();
         if (tipoPersona.equalsIgnoreCase("Gerente")) {
             try {
-                int id = Integer.parseInt(tf_gid.getText());
-                String nombre = tf_gname.getText();
-                int edad = Integer.parseInt(tf_gage.getText());
+                id = Integer.parseInt(tf_gid.getText());
+                nombre = tf_gname.getText();
+                edad = Integer.parseInt(tf_gage.getText());
                 String sexo;
                 if (rb_sexoM.isSelected()) {
                     sexo = "M";
                 } else {
                     sexo = "F";
                 }
-                double altura = Double.parseDouble(tf_galtura.getText());
-                int peso = Integer.parseInt(tf_gpeso.getText());
+                altura = Double.parseDouble(tf_galtura.getText());
+                peso = Integer.parseInt(tf_gpeso.getText());
                 String estcivil;
                 if (rb_soltero.isSelected()) {
                     estcivil = "Soltero";
@@ -1420,19 +1423,11 @@ public class Main extends javax.swing.JFrame {
                 }
                 String user = tf_guser.getText();
                 String pass = tf_gpass.getText();
-                String cargo = cb_cargo.getSelectedItem().toString();
+                cargo = cb_cargo.getSelectedItem().toString();
 
                 Gerente g = new Gerente(user, pass, cargo, id, nombre, edad, sexo, estcivil, altura, peso);
                 personas.add(g);
                 gerentes.add(g);
-
-                Object[] newrow = {
-                    nombre,
-                    tipoPersona
-                };
-                DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
-                modelo.addRow(newrow);
-                tabla1.setModel(modelo);
 
                 tf_gage.setText("");
                 tf_galtura.setText("");
@@ -1454,9 +1449,9 @@ public class Main extends javax.swing.JFrame {
             }
         } else if (tipoPersona.equalsIgnoreCase("Personal General")) {
             try {
-                int id = Integer.parseInt(tf_gid.getText());
-                String nombre = tf_gname.getText();
-                int edad = Integer.parseInt(tf_gage.getText());
+                id = Integer.parseInt(tf_gid.getText());
+                nombre = tf_gname.getText();
+                edad = Integer.parseInt(tf_gage.getText());
                 String sexo;
                 if (rb_sexoM.isSelected()) {
                     sexo = "M";
@@ -1469,24 +1464,16 @@ public class Main extends javax.swing.JFrame {
                 } else {
                     estcivil = "Casado";
                 }
-                double altura = Double.parseDouble(tf_galtura.getText());
-                int peso = Integer.parseInt(tf_gpeso.getText());
-                String horario = tf_phorario.getText();
-                String ocupacion = tf_pocupacion.getText();
-                double sueldo = Double.parseDouble(tf_psueldo.getText());
+                altura = Double.parseDouble(tf_galtura.getText());
+                peso = Integer.parseInt(tf_gpeso.getText());
+                horario = tf_phorario.getText();
+                ocupacion = tf_pocupacion.getText();
+                sueldo = Double.parseDouble(tf_psueldo.getText());
                 int tiemTrabaj = Integer.parseInt(tf_ptiempotrabajado.getText());
 
                 PersonalGeneral pg = new PersonalGeneral(ocupacion, horario, tiemTrabaj, sueldo, id, nombre, edad, sexo, estcivil, altura, peso);
                 personas.add(pg);
                 personasGenerales.add(pg);
-
-                Object[] newrow = {
-                    nombre,
-                    tipoPersona
-                };
-                DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
-                modelo.addRow(newrow);
-                tabla1.setModel(modelo);
 
                 tf_gage.setText("");
                 tf_galtura.setText("");
@@ -1620,15 +1607,6 @@ public class Main extends javax.swing.JFrame {
                 objetos.add(z);
                 zapatos.add(z);
 
-                Object[] newrow = {
-                    c,
-                    marca,
-                    persona
-                };
-                DefaultTableModel modelo = (DefaultTableModel) tabla2.getModel();
-                modelo.addRow(newrow);
-                tabla2.setModel(modelo);
-
                 btn_color.setBackground(Color.BLACK);
                 ta_descripciongeneral.setText("");
                 tf_marca.setText("");
@@ -1662,9 +1640,9 @@ public class Main extends javax.swing.JFrame {
 
                 Color c = btn_color.getBackground();
                 String desc = ta_descripciongeneral.getText();
-                String marca = tf_marca.getText();
-                String tam = tf_tama.getText();
-                String calidad = tf_calidad.getText();
+                marca = tf_marca.getText();
+                tam = tf_tama.getText();
+                calidad = tf_calidad.getText();
                 String persona = cb_personaingresada.getSelectedItem().toString();
                 String talla = "";
                 if (rb_sizeS.isSelected()) {
@@ -1684,15 +1662,6 @@ public class Main extends javax.swing.JFrame {
 
                 objetos.add(r);
                 ropas.add(r);
-
-                Object[] newrow = {
-                    c,
-                    marca,
-                    persona
-                };
-                DefaultTableModel modelo = (DefaultTableModel) tabla2.getModel();
-                modelo.addRow(newrow);
-                tabla2.setModel(modelo);
 
                 btn_color.setBackground(Color.BLACK);
                 ta_descripciongeneral.setText("");
@@ -1744,15 +1713,6 @@ public class Main extends javax.swing.JFrame {
                 Hogar h = new Hogar(descripH, inst, tiempoG, c, desc, marca, tam, calidad, persona);
                 objetos.add(h);
                 hogares.add(h);
-
-                Object[] newrow = {
-                    c,
-                    marca,
-                    persona
-                };
-                DefaultTableModel modelo = (DefaultTableModel) tabla2.getModel();
-                modelo.addRow(newrow);
-                tabla2.setModel(modelo);
 
                 btn_color.setBackground(Color.BLACK);
                 ta_descripciongeneral.setText("");
@@ -2482,4 +2442,28 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField tf_tipotelar;
     private javax.swing.JTextField tf_tipotelarmod;
     // End of variables declaration//GEN-END:variables
+    static ArrayList personas = new ArrayList();
+    static ArrayList objetos = new ArrayList();
+    static ArrayList personasGenerales = new ArrayList();
+    static ArrayList gerentes = new ArrayList();
+    static int id, edad, peso, tiempTrab;
+    static double altura, sueldo;
+    static String nombre, sexo, estcivil, usuario, contra, cargo, idString = "", edadString = "", alturaString = "", pesoString = "", ocupacion, horario, tiempString = "", sueldoString = "";
+    static int indiceMod = 0;
+    static int indGer = 0;
+    static int indPer = 0;
+    static ArrayList zapatos = new ArrayList();
+    static ArrayList ropas = new ArrayList();
+    static ArrayList hogares = new ArrayList();
+    static int indiceModObj;
+    static int indZap, indRop, indHog;
+    static Color color;
+    static String descripcionGe, marca, tam, calidad, personaIng, tallaString = "", comodidadString = "";
+    static int tallaZ, comodidad;
+    static String descSuela;
+    static String tallaR, tipotela, paiselab;
+    static String descH, inst;
+    static int tiempGarant;
+    static String garantString;
+    static String persona = "";
 }
