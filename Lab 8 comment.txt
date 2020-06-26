@@ -1,0 +1,7 @@
+1. Elegi hacer el inciso 2, porque no pude concluir este laboratorio; esto mejorara mi programa porque asi si se cumplira todo lo que se pedia en aquel entonces. 
+
+2. El tema en que ms debilidad siento es en Árbol, ya que para este tema se tomo una mayor cantidad de tiempo en comparacion a los otros dos en los que me siento con dificultades, y aun asi no logre entenderle como se debe. 
+
+3. Podria mostrar un árbol con las organizacion y distribucion de objetos para mantener un orden y poder visualizarlos de mejor manera para un facil acceso a esta informacion 
+
+4. De los labs de la instructora Claudia Cortes, no puedo dar queja alguna. Me parecio que tivieron un buen balance entre dificultad y tiempo para poder trabajar. Lo que si puedo decir es que el Lab 6 estuvo un tanto corto (cosa que esperaba pues era un tema algo sencillo como lo es el manejo de archivos de texto). Pero asi como ese estuvo corto, el lab 3 recuerdo que me puso muy estrsado por la gran cantidad de cosas que nos toco implementar y todas las clases que se tuvieron que hacer; asi que mi conlcusion es que hubo un balance equilibrado en dificultad y exigencia reflejado en el tiempo de trabajo de estos. 
