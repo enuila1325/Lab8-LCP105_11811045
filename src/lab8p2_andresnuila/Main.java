@@ -2,8 +2,11 @@ package lab8p2_andresnuila;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JColorChooser;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 public class Main extends javax.swing.JFrame {
 
@@ -259,9 +262,19 @@ public class Main extends javax.swing.JFrame {
         tf_tipotelarmod = new javax.swing.JTextField();
         jLabel82 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jt_personas = new javax.swing.JTree();
         jPanel6 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jt_objetos = new javax.swing.JTree();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
         jLabel1.setText("ID:");
 
@@ -1353,31 +1366,61 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Modificar objeto", jPanel4);
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Personas");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gerente");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Personal General");
+        treeNode1.add(treeNode2);
+        jt_personas.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane2.setViewportView(jt_personas);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1017, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 921, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 598, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Listar persona", jPanel5);
+        jTabbedPane1.addTab("Jerarquia de Peronsas", jPanel5);
+
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Objetos");
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Zapatos");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Ropa");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Hogar");
+        treeNode1.add(treeNode2);
+        jt_objetos.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane6.setViewportView(jt_objetos);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1017, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 598, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Listar Objeto", jPanel6);
+        jTabbedPane1.addTab("Jerraquia de Objetos", jPanel6);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1443,6 +1486,14 @@ public class Main extends javax.swing.JFrame {
                 rb_soltero.setSelected(false);
 
                 JOptionPane.showMessageDialog(this, "Se agrego el nuevo gerente.");
+                DefaultTreeModel t = (DefaultTreeModel) jt_personas.getModel();
+                DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) t.getRoot();
+                for (int i = 0; i < gerentes.size(); i++) {
+                    if (raiz.getChildAt(i).toString().equals("Gerente")) {
+                        DefaultMutableTreeNode f = new DefaultMutableTreeNode(gerentes.get(i));
+                        ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(f);
+                    }
+                }
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Hubo un error en los datos.");
@@ -1490,6 +1541,14 @@ public class Main extends javax.swing.JFrame {
                 rb_soltero.setSelected(false);
 
                 JOptionPane.showMessageDialog(this, "Se agrego el nuevo personal general.");
+                DefaultTreeModel t = (DefaultTreeModel) jt_personas.getModel();
+                DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) t.getRoot();
+                for (int i = 0; i < personasGenerales.size(); i++) {
+                    if (raiz.getChildAt(i).toString().equals("Personal General")) {
+                        DefaultMutableTreeNode f = new DefaultMutableTreeNode(personasGenerales.get(i));
+                        ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(f);
+                    }
+                }
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Hubo un error en los datos.");
@@ -1618,6 +1677,14 @@ public class Main extends javax.swing.JFrame {
                 tf_comodidadz.setText("");
 
                 JOptionPane.showMessageDialog(this, "Objeto agregado exitosamente.");
+                DefaultTreeModel t = (DefaultTreeModel) jt_objetos.getModel();
+                DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) t.getRoot();
+                for (int i = 0; i < zapatos.size(); i++) {
+                    if (raiz.getChildAt(i).toString().equals("Zapatos")) {
+                        DefaultMutableTreeNode f = new DefaultMutableTreeNode(zapatos.get(i));
+                        ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(f);
+                    }
+                }
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Hubo un error en los datos");
@@ -1678,6 +1745,14 @@ public class Main extends javax.swing.JFrame {
                 rb_sizeXL.setSelected(false);
 
                 JOptionPane.showMessageDialog(this, "Objeto agregado exitosamente.");
+                DefaultTreeModel t = (DefaultTreeModel) jt_objetos.getModel();
+                DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) t.getRoot();
+                for (int i = 0; i < ropas.size(); i++) {
+                    if (raiz.getChildAt(i).toString().equals("Ropa")) {
+                        DefaultMutableTreeNode f = new DefaultMutableTreeNode(ropas.get(i));
+                        ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(f);
+                    }
+                }
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Hubo un error en los datos");
@@ -1725,6 +1800,14 @@ public class Main extends javax.swing.JFrame {
                 tf_garantiah.setText("");
 
                 JOptionPane.showMessageDialog(this, "Objeto agregado exitosamente.");
+                DefaultTreeModel t = (DefaultTreeModel) jt_objetos.getModel();
+                DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) t.getRoot();
+                for (int i = 0; i < hogares.size(); i++) {
+                    if (raiz.getChildAt(i).toString().equals("Hogar")) {
+                        DefaultMutableTreeNode f = new DefaultMutableTreeNode(hogares.get(i));
+                        ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(f);
+                    }
+                }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Hubo un error en los datos");
             }
@@ -2227,6 +2310,50 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_modificarobjetoMouseClicked
 
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+
+        if (jTabbedPane1.getSelectedIndex() == 2) {
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_personaingresada.getModel();
+
+            DefaultComboBoxModel modelo1 = (DefaultComboBoxModel) cb_personasMod.getModel();
+
+            for (int i = 0; i < modelo.getSize(); i++) {
+                modelo.removeElementAt(i);
+            }
+            for (int i = 0; i < modelo1.getSize(); i++) {
+                modelo1.removeElementAt(i);
+            }
+
+            for (int i = 0; i < personas.size(); i++) {
+                String nombre = ((Persona) personas.get(i)).getNombre();
+                modelo.addElement(nombre);
+                modelo1.addElement(nombre);
+            }
+            cb_personasMod.setModel(modelo);
+
+        } else if (jTabbedPane1.getSelectedIndex() == 5) {
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_objetomod.getModel();
+            DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_personaingresadamod.getModel();
+            for (int i = 0; i < modelo.getSize(); i++) {
+                modelo.removeElementAt(i);
+            }
+            for (int i = 0; i < modelo2.getSize(); i++) {
+                modelo2.removeElementAt(i);
+            }
+
+            for (int i = 0; i < objetos.size(); i++) {
+                String nombre = ((Objeto) objetos.get(i)).getMarca();
+                modelo2.addElement(nombre);
+            }
+
+            for (int i = 0; i < objetos.size(); i++) {
+                String nombre = ((Objeto) objetos.get(i)).getMarca();
+                modelo.addElement(nombre);
+            }
+            cb_objetomod.setModel(modelo);
+        }
+    }//GEN-LAST:event_jTabbedPane1StateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -2372,13 +2499,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTree jt_objetos;
+    private javax.swing.JTree jt_personas;
     private javax.swing.JRadioButton rb_casado;
     private javax.swing.JRadioButton rb_casadomod;
     private javax.swing.JRadioButton rb_sexoF;
